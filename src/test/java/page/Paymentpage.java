@@ -13,11 +13,11 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class Paymentpage {
 
-    private SelenideElement cardnumber = $(byText("Номер карты")).parent().$(".input__control");
+    private SelenideElement cardnumber = $("[placeholder='0000 0000 0000 0000']");//$(byText("Номер карты")).parent().$(".input__control");
     private SelenideElement month = $(byText("Месяц")).parent().$(".input__control");
     private SelenideElement year = $(byText("Год")).parent().$(".input__control");
     private SelenideElement owner = $(byText("Владелец")).parent().$(".input__control");
-    private SelenideElement cvccvv = $(byText("Владелец")).parent().$(".input__control");
+    private SelenideElement cvccvv = $(byText("CVC/CVV")).parent().$(".input__control");
     private SelenideElement continuebutton = $(byText("Продолжить"));
     private SelenideElement cardNumberError = $(byText("Номер карты")).parent().$(".input__sub");
     private SelenideElement monthError = $(byText("Месяц")).parent().$(".input__sub");
@@ -47,7 +47,7 @@ public class Paymentpage {
     }
 
     // успешная оплата
-    public void paymentSuccessful() {
+    public void paymentSuccessfull() {
         $(".notification_status_ok").shouldBe(Condition.visible, Duration.ofSeconds(30));
     }
 

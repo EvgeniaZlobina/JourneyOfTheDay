@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.time.Year;
 import java.util.Locale;
 
+import static java.lang.Math.random;
+import static java.lang.String.format;
+
 public class DataHelper {
     public static final Faker faker = new Faker(new Locale("en"));
 
@@ -24,11 +27,13 @@ public class DataHelper {
 // Заполнение поля "Месяц"
 public static String getValidMonth() {
         LocalDate localDate = LocalDate.now();
-    return String.format("%02d", localDate.getMonthValue());}
+    return format("%02d", localDate.getMonthValue());}
 
     // Заполнение поля "Год"
     public static String getValidYear() {
-        return String.format("%ty", Year.now());
+        int yer = Integer.parseInt(format("%ty", Year.now()));
+        int yer1 = yer + 1;
+        return format("%ty", yer1);
     }
     // Заполнение поля "владелец"
     public static String getValidHolder() {
@@ -36,8 +41,9 @@ public static String getValidMonth() {
     }
     // Заполнение поля "код CVC/CVV"
     public static String getValidCodcvccvv() {
-        double x = Math.random()*100;
-        return String.valueOf(x);
+        double x = random()*1000;
+        int result = (int)Math.ceil(x);
+        return String.valueOf(result);
     }
 
 // данные карты

@@ -6,6 +6,7 @@ import data.SQLHelper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import page.Paymentpage;
 import page.Purchasepage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -25,19 +26,21 @@ public class StatusTest {
     void theCardPaymentMustBeApproved() {
         var cardinfo = new DataHelper.CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodcvccvv());
         var purchasepage = new Purchasepage();
-        var paymentpage = purchasepage.BuyCard();
-        paymentpage.fillingOutTheForm(cardinfo);
-        paymentpage.paymentSuccessful();
-        assertEquals("APPROVED", SQLHelper.getPaymentStatus());
+        var payment = purchasepage.BuyCard();// купить
+         var form = new Paymentpage();
+         form.fillingOutTheForm(cardinfo);
+         form.paymentSuccessfull();
+         assertEquals("APPROVED", SQLHelper.getPaymentStatus());
     }
     @Test
     @DisplayName("Shuld successful card payment declined")
     void theCardPaymentMustBeDeclined() {
         var cardinfo = new DataHelper.CardInfo(getDeclinedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodcvccvv());
         var purchasepage = new Purchasepage();
-        var paymentpage = purchasepage.BuyCard();
-        paymentpage.fillingOutTheForm(cardinfo);
-        paymentpage.paymentSuccessful();
+        var payment = purchasepage.BuyCreditCard();// купить в кредит
+        var form = new Paymentpage();
+        form.fillingOutTheForm(cardinfo);
+        form.paymentSuccessfull();
         assertEquals("DECLINED", SQLHelper.getPaymentStatus());
     }
 }

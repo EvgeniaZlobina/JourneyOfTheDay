@@ -1,6 +1,7 @@
 HELP.md
 .gradle
 build/
+gate-simulator/
 
 ### STS ###
 .apt_generated
