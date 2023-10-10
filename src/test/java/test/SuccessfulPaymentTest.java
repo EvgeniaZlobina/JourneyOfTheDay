@@ -14,15 +14,17 @@ public class SuccessfulPaymentTest {
         open("http://localhost:8080");
         SQLHelper.deleteTable();
     }
+
     @Test
     @DisplayName("the Buy form should open")
-    public void ShuldFormBuy(){
+    public void ShuldFormBuy() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
     }
+
     @Test
     @DisplayName("a credit purchase form should open")
-    public void ShuldFormBuyCredit(){
+    public void ShuldFormBuyCredit() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCreditCard();
     }

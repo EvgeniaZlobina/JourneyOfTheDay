@@ -139,6 +139,9 @@ public static String getValidMonth() {
     public static CardInfo getCVCCVVEmpty() {
         return new CardInfo(getApprovedCardNumber(),getValidMonth(),getValidYear(),getValidHolder(),"");
     }
+    public static CardInfo getCVCCVV000() {
+        return new CardInfo(getApprovedCardNumber(),getValidMonth(),getValidYear(),getValidHolder(),"000");
+    }
 // данные карты
     @Value
     public static class CardInfo {

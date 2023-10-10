@@ -19,8 +19,9 @@ public class SQLHelper {
     private static Connection getConn() throws SQLException {
         return DriverManager.getConnection(System.getProperty("db.url"), "app", "pass");
     }
+
     @SneakyThrows
-  public static void deleteTable() {
+    public static void deleteTable() {
         val deletePaymentEntity = "DELETE FROM payment_entity ";
         val runner = new QueryRunner();
         try (val conn = getConn()) {
@@ -29,6 +30,7 @@ public class SQLHelper {
             sqlException.printStackTrace();
         }
     }
+
     @SneakyThrows
     public static String getPaymentStatus() {
         String statusSQL = "SELECT status FROM payment_entity";
@@ -43,5 +45,5 @@ public class SQLHelper {
             return status;
         }
     }
-    }
+}
 

@@ -57,24 +57,31 @@ public class Paymentpage {
     public void declinedPayment() {
         $(byCssSelector("div.notification.notification_status_error.notification_has-closer.notification_stick-to_right.notification_theme_alfa-on-white")).shouldBe(Condition.visible, Duration.ofSeconds(20));
     }
+
     public void invalidCardFormat() {
         formatCardError.shouldBe(visible);
     }
+
     public void invalidCardExpirationDate() {
         expiredCardError.shouldBe(visible);
     }
+
     public void theСardExpired() {
         termCardError.shouldBe(visible);
     }
+
     public void monthNotValid() {
         monthError.shouldBe(visible);
     }
+
     public void yearNotValid() {
         yearError.shouldBe(visible);
     }
+
     public void ownerNotValid() {
         ownerError.shouldBe(visible);
     }
+
     public void cvcNotValid() {
         cvcError.shouldBe(visible);
     }

@@ -13,14 +13,15 @@ public class Purchasepage {
     private final SelenideElement Paymentcard = $(byText("Оплата по карте"));
     private final SelenideElement Creditcard = $(byText("Кредит по данным карты"));
 
-public DashboardPage BuyCard() {
-    Buy.click(); //нажимаем кнопку купить
-    Paymentcard.shouldBe(visible); // видим оплата по карте
-    return new DashboardPage();
-}
-public DashboardPage BuyCreditCard() {
-    Buyaloan.click(); //нажимаем кнопку Купить в кредит
-    Creditcard.shouldBe(visible); // видим Кредит по данным карты
-    return new DashboardPage();
-}
+    public DashboardPage BuyCard() {
+        Buy.click(); //нажимаем кнопку купить
+        Paymentcard.shouldBe(visible); // видим оплата по карте
+        return new DashboardPage();
+    }
+
+    public DashboardPage BuyCreditCard() {
+        Buyaloan.click(); //нажимаем кнопку Купить в кредит
+        Creditcard.shouldBe(visible); // видим Кредит по данным карты
+        return new DashboardPage();
+    }
 }
